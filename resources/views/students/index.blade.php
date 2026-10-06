@@ -7,12 +7,19 @@
     <title>Students List</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" mx-auto>
         <h1>Students List</h1>
-        <div class="grid grid-cols-2 gap-2">
+        <a class="bg-amber-200" href="{{ route('students.create') }}">Create Student</a>
+        <div class="grid grid-cols-4 gap-2">
             @foreach ($students as $student)
-                <div>
+                <div class="bg-blue-100">
                     <h2>{{$student->fullname}}</h2>
+                    <p>{{$student->date_of_birth}}</p>
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input class="bg-red-300" type="submit" value="Delete">
+                    </form>
                 </div>
             @endforeach
         </div>
