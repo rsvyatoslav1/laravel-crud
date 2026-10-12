@@ -11,9 +11,14 @@ class Student extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'fullname', 
+        'fullname',
         'date_of_birth'
     ];
 
     #protected $guarded = [];
+
+    //public function fullName(): string
+    //{
+    //  return $this->firstname . " " . $this->middlename . " " . $this->lastname;
+    //}
 }
